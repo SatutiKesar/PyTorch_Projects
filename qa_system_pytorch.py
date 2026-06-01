@@ -19,7 +19,7 @@ def tokenize(text):
 
 tokenize('What is the capital of India?')
 
-# Vocab
+# Building Vocab
 vocab = { '<UNK> ':0}
 
 def build_vocab(row):
@@ -58,6 +58,7 @@ text_to_indices("Satuti is here", vocab)
 import torch
 from torch.utils.data import Dataset, DataLoader
 
+# Dataset class
 class QADataset(Dataset):
 
   def __init__(self, df, vocab) :
@@ -84,6 +85,7 @@ for question, answer in dataloader:
 
 import torch.nn as nn
 
+# Using NN Module class
 class SimpleRNN(nn.Module):
 
   def __init__(self, vocab_size):
@@ -99,6 +101,7 @@ class SimpleRNN(nn.Module):
 
     return output
 
+# Creating Parameters
 learning_rate = 0.001
 epochs = 20
 
@@ -132,6 +135,7 @@ for epoch in range(epochs):
     total_loss += loss.item()
   print(f"Epoch: {epoch+1}, Loss: {total_loss:4f}")
 
+# Final Function Prediction
 def predict(model, question, threshold=0.5):
 
   # Convert question to numbers
