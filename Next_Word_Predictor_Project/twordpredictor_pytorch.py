@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """NextWordPredictor_PyTorch.py"""
 
 !pip install nltk
@@ -95,8 +94,10 @@ Discussion on Job hunting strategies
 nltk.download('punkt')
 nltk.download('punkt_tab')
 
+
 # Tokenize
 tokens = word_tokenize(document.lower())
+
 
 # Building Vocab
 vocab = {'<unk>':0}
@@ -108,8 +109,10 @@ vocab
 
 len(vocab)
 
+
 # Extracting sentences from data
 input_sentences = document.split('\n')
+
 
 # Converting Sentence to Number
 
@@ -160,6 +163,7 @@ padded_training_sequence = torch.tensor(padded_training_sequence, dtype=torch.lo
 padded_training_sequence
 
 padded_training_sequence.shape
+
 
 # Extracting Input and Output
 X = padded_training_sequence[:, :-1]
